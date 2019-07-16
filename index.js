@@ -10,12 +10,14 @@ var wordhere2;
 function first(){
     var num = Math.floor(Math.random() * list.length);
     wordhere2 = list[num];
+    list.splice(num, 1);
     var wordhere = wordhere2.split("")
     var conv = new wordd(wordhere);
     startGame(conv, wordhere);
 }
 
 function startGame(word, wordhere){
+    console.log("\n The words are related to fun things to do \n")
     inq.prompt([
         {
             name: "choice",
@@ -68,8 +70,36 @@ first();
 
 function youwon() {
     console.log("\n You Won! \n")
+    inq.prompt([
+        {
+            type: "confirm",
+            message: "Want to play again",
+            name: "again",
+            default: true
+        }
+    ]).then((res)=>{
+        if (res.again){
+            first();
+        } else {
+            null;
+        }
+    })
 }
 
 function youlost() {
     console.log("\n you lost \n");
+    inq.prompt([
+        {
+            type: "confirm",
+            message: "Want to play again",
+            name: "again",
+            default: true
+        }
+    ]).then((res)=>{
+        if (res.again){
+            first();
+        } else {
+            null;
+        }
+    })
 }
