@@ -16,8 +16,6 @@ function first(){
 }
 
 function startGame(word, wordhere){
-    var comparex = word.start();
-    console.log("\n"+comparex+"\n");
     inq.prompt([
         {
             name: "choice",
@@ -33,15 +31,26 @@ function startGame(word, wordhere){
         }
 
         if(!cont){ console.log("\nPlease enter a single valid letter\n"); startGame(word, wordhere); } else {
+
+            var wrong = true;
+
             for ( let i = 0; i < wordhere.length; i++ ){
                 if ( wordhere[i] == strx ){
                     wordhere[i] += "1";
+                    wrong = false;
                 }
             }
 
+            var comparex = word.start();
+            console.log("\n"+comparex+"\n");
+
             var run = word.compare(comparex);
+
+            if (wrong){
+                count--;
+            }
             console.log(count + ' Times remaining');
-            count--;
+            
 
             if (run){
                 youwon();
