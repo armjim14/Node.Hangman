@@ -13,11 +13,11 @@ function first(){
     list.splice(num, 1);
     var wordhere = wordhere2.split("")
     var conv = new wordd(wordhere);
+    console.log("\n The words are related to fun things to do \n");
     startGame(conv, wordhere);
 }
 
 function startGame(word, wordhere){
-    console.log("\n The words are related to fun things to do \n")
     inq.prompt([
         {
             name: "choice",
