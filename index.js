@@ -51,7 +51,7 @@ function startGame(word, wordhere){
             if (wrong){
                 count--;
             }
-            console.log(count + ' Times remaining');
+            console.log(count + ' Guesses remaining');
             
 
             if (run){
