@@ -8,6 +8,9 @@ var count = 10;
 var wordhere2;
 
 function first(){
+    if (list.length == 0){
+        console.log("\n There are no more words left \n");
+    } else {
     var num = Math.floor(Math.random() * list.length);
     wordhere2 = list[num];
     list.splice(num, 1);
@@ -15,6 +18,7 @@ function first(){
     var conv = new wordd(wordhere);
     console.log("\n The words are related to fun things to do \n");
     startGame(conv, wordhere);
+    }
 }
 
 function startGame(word, wordhere){
@@ -56,7 +60,7 @@ function startGame(word, wordhere){
 
             if (run){
                 youwon();
-            } else if (count == -1) {
+            } else if (count == 0) {
                 youlost();
             } else {
                 word = new wordd(wordhere);
